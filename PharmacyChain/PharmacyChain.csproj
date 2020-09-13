@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Josip\source\repos\PharmacyChain\PharmacyChain\PharmacyChain.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200911181659_AddUserToDb.cs" />
+    <Compile Remove="Migrations\20200911181659_AddUserToDb.Designer.cs" />
+    <Compile Remove="Migrations\20200911181749_AddUserToDb.cs" />
+    <Compile Remove="Migrations\20200911181749_AddUserToDb.Designer.cs" />
+    <Compile Remove="Migrations\20200911191906_RewritingTheUser.cs" />
+    <Compile Remove="Migrations\20200911191906_RewritingTheUser.Designer.cs" />
+    <Compile Remove="Migrations\20200911192129_RewritingTheUser.cs" />
+    <Compile Remove="Migrations\20200911192129_RewritingTheUser.Designer.cs" />
+    <Compile Remove="Migrations\20200913142759_AddUserWithToken.cs" />
+    <Compile Remove="Migrations\20200913142759_AddUserWithToken.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.5.1" />
+  </ItemGroup>
+
+
+</Project>
