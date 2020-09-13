@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +12,7 @@ namespace PharmacyChain.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PharmacyController : ControllerBase
     {
         private readonly IPharmacyRepo _repository;

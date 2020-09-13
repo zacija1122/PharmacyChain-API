@@ -27,6 +27,7 @@ namespace PharmacyChain.Services
 
             services.AddScoped<IPharmacyRepo, PharmacyRepo>();
             services.AddScoped<IEmployeeRepo, EmployeeRepo>();
+            services.AddScoped<IUserRepo, UserRepo>();
 
         }
     }

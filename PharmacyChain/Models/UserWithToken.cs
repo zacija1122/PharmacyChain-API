@@ -10,7 +10,7 @@ namespace PharmacyChain.Models
         public string AccessToken{ get; set; }
 
         public UserWithToken(AuthTest user)
-        {
+        {         //baca exception provjeri to
             this.Id = user.Id;
             this.Name = user.Name;
             this.Email = user.Email;

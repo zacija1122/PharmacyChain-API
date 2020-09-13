@@ -10,7 +10,7 @@ namespace PharmacyChain.Contract
     public interface IEmployeeRepo : IRepositoryBase<Employee>
     {
         Task <IEnumerable<Employee>> GetEmployeesByLastNameDesc(string lastName);
-        Task<AuthTest> GetByEmailAndPassworkd(AuthTest user);
+
 
     }
 }

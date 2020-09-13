@@ -50,11 +50,6 @@ namespace PharmacyChain.Repository
                 
         }
 
-        public async Task<AuthTest> GetByEmailAndPassworkd(AuthTest user)
-        {
-            return await _context.AuthTests.Where(p => p.Email.ToLower() == user.Email.ToLower() &&
-            p.Name.ToLower() == user.Name.ToLower()).FirstOrDefaultAsync();
-        }
 
         public async Task<bool> Remove(Employee entity)
         {
