@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace PharmacyChain.Models
 {
-    public class UserWithToken:AuthTest
+    public class UserWithToken:User
     {
         public string AccessToken{ get; set; }
 
-        public UserWithToken(AuthTest user)
-        {         //baca exception provjeri to
-            this.Id = user.Id;
+        public UserWithToken(User user)
+        {       
+            //baca exception provjeri to
             this.Name = user.Name;
             this.Email = user.Email;
         }

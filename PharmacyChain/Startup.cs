@@ -10,6 +10,8 @@ using Microsoft.IdentityModel.Tokens;
 using PharmacyChain.Data;
 using PharmacyChain.Services;
 using System.Text;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace PharmacyChain
 {
@@ -31,7 +33,10 @@ namespace PharmacyChain
 
             services.AddAuthentication("BasicAuthentication")
                     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(s =>
+            {
+                s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
             services.AddDependecyInjection();
 
             var jwtSection = Configuration.GetSection("JWTSettings");

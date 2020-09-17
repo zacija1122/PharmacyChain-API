@@ -102,7 +102,7 @@ namespace PharmacyChain.Controllers
                 return NotFound();
 
             var entityToPatch = _mapper.Map<PharmacyCreateDto>(entityFromDb);
-            jsonPatchDocument.ApplyTo(entityToPatch);
+            jsonPatchDocument.ApplyTo(entityToPatch,ModelState);
 
             if (!TryValidateModel(entityToPatch))
                 return ValidationProblem();

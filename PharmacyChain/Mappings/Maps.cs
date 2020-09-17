@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using PharmacyChain.Dtos;
+using PharmacyChain.DTOs;
 using PharmacyChain.Models;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,18 @@ namespace PharmacyChain.Mappings
         public Maps()
         {
             //source => destination
+
+            // Pharmacy
             CreateMap<PharmacyCreateDto, Pharmacy>().ReverseMap();
             CreateMap<PharmacyUpdateDto, Pharmacy>();
-           
+
+            //User
+            CreateMap<UserCreateDto, User>();
+
+            //Employee
+            CreateMap<EmployeeCreateDto, Employee>();
+            CreateMap<EmployeeUpdateDto, Employee>();
+            CreateMap<EmployeePatchDto, Employee>().ReverseMap();
         }
     }
 }

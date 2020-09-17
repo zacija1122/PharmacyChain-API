@@ -39,9 +39,10 @@ namespace PharmacyChain.Repository
             return await _context.Employees.FirstOrDefaultAsync(p => p.EmployeeId == id);
         }
 
-        public async Task <IEnumerable<Employee>> GetEmployeesByLastNameDesc(string lastName)
+        public async Task <IEnumerable<Employee>> GetEmployeesByLastName(string lastName)
         {
             return await _context.Employees.Where(p => p.LastName.ToLower() == lastName.ToLower()).ToListAsync();
+            
         }
 
         public async Task<bool> isExists(int id)

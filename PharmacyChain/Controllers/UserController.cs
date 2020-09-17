@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using PharmacyChain.Contract;
+using PharmacyChain.DTOs;
 using PharmacyChain.Models;
 using PharmacyChain.Services;
 using System;
@@ -21,18 +23,21 @@ namespace PharmacyChain.Controllers
     {
         private readonly IUserRepo _repository;
         private readonly JWTSettings _jwtSettings;
+        private readonly IMapper _mapper;
 
-        public UserController(IUserRepo repository, IOptions<JWTSettings> jwtSettings)
+        public UserController(IUserRepo repository, IOptions<JWTSettings> jwtSettings,IMapper mapper)
         {
             _repository = repository;
             _jwtSettings = jwtSettings.Value;
+            _mapper = mapper;
         }
 
         [HttpGet("Login")]
-        public async Task<ActionResult<UserWithToken>> Login([FromBody] AuthTest user)
+        public async Task<ActionResult<UserWithToken>> Login([FromBody] User user)
         {
+ 
             user = await _repository.GetByEmailAndPassworkd(user);
-
+  
             UserWithToken userWithToken = new UserWithToken(user);
             if (userWithToken == null)
                 return NotFound();
@@ -56,11 +61,12 @@ namespace PharmacyChain.Controllers
         }
 
         [HttpPost("Register")]
-        public async Task<IActionResult> Register (AuthTest user)
+        public async Task<IActionResult> Register (User user)
         {
             var newUser = await _repository.Create(user);
             return Ok(newUser);
         }
+
 
     }
 }

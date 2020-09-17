@@ -43,13 +43,13 @@ namespace PharmacyChain.Services
                 string credentials = Encoding.UTF8.GetString(bytes);
                
 
-                var authTest = await _context.AuthTests.Where(p => p.Email == credentials).FirstOrDefaultAsync();
-                if (authTest == null)
+                var user = await _context.Users.Where(p => p.Email == credentials).FirstOrDefaultAsync();
+                if (user == null)
                     return AuthenticateResult.Fail("invalid email or name");
                 else
                 {
 
-                    var claims = new[] { new Claim(ClaimTypes.Name, authTest.Email) };
+                    var claims = new[] { new Claim(ClaimTypes.Name, user.Email) };
                     var identity = new ClaimsIdentity(claims, Scheme.Name);
                     var principal = new ClaimsPrincipal(identity);
                     var ticket = new AuthenticationTicket(principal, Scheme.Name);

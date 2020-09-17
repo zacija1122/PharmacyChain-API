@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PharmacyChain.Contract;
 using PharmacyChain.Data;
+using PharmacyChain.DTOs;
 using PharmacyChain.Models;
 using System;
 using System.Collections.Generic;
@@ -17,19 +18,19 @@ namespace PharmacyChain.Repository
             _context = context;
 
         }
-        public async Task<bool> Create(AuthTest entity)
+        public async Task<bool> Create(User entity)
         {
-            await _context.AuthTests.AddAsync(entity);
+            await _context.Users.AddAsync(entity);
             return await Save();
 
         }
 
-        public Task<IEnumerable<AuthTest>> GetAll()
+        public Task<IEnumerable<User>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Task<AuthTest> GetById(int id)
+        public Task<User> GetById(int id)
         {
             throw new NotImplementedException();
         }
@@ -39,7 +40,7 @@ namespace PharmacyChain.Repository
             throw new NotImplementedException();
         }
 
-        public Task<bool> Remove(AuthTest entity)
+        public Task<bool> Remove(User entity)
         {
             throw new NotImplementedException();
         }
@@ -50,14 +51,14 @@ namespace PharmacyChain.Repository
             return changes > 0;
         }
 
-        public Task<bool> Update(AuthTest entity)
+        public Task<bool> Update(User entity)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<AuthTest> GetByEmailAndPassworkd(AuthTest user)
+        public async Task<User> GetByEmailAndPassworkd(User user)
         {
-            return await _context.AuthTests.Where(p => p.Email.ToLower() == user.Email.ToLower() &&
+            return await _context.Users.Where(p => p.Email.ToLower() == user.Email.ToLower() &&
             p.Name.ToLower() == user.Name.ToLower()).FirstOrDefaultAsync();
         }
     }

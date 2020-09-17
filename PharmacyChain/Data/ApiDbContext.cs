@@ -15,7 +15,7 @@ namespace PharmacyChain.Data
         }
         public DbSet<Pharmacy> Pharmacies { get; set; }
         public DbSet<Employee> Employees{ get; set; }
-        public DbSet<AuthTest> AuthTests{ get; set; }
+        public DbSet<User> Users{ get; set; }
         
         
 

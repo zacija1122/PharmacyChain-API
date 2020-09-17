@@ -17,7 +17,10 @@ namespace PharmacyChain.Models
         [Required]
         public EGender Gender { get; set; }
         public enum EGender {NA,M,F}
+
         [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
 
         public List<PharmacyEmployees> EmployedPharmacyList { get; set; }

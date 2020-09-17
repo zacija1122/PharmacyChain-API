@@ -1,4 +1,5 @@
 ﻿using PharmacyChain.Data;
+using PharmacyChain.DTOs;
 using PharmacyChain.Models;
 using System;
 using System.Collections.Generic;
@@ -7,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace PharmacyChain.Contract
 {
-    public interface IUserRepo : IRepositoryBase<AuthTest>
+    public interface IUserRepo : IRepositoryBase<User>
     {
 
-        Task<AuthTest> GetByEmailAndPassworkd(AuthTest user);
+        Task<User> GetByEmailAndPassworkd(User user);
     }
 }

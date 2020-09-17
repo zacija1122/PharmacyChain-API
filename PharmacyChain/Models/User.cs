@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PharmacyChain.Models
 {
-    public class AuthTest
+    public class User
     {
         public int Id { get; set; }
         public string Name { get; set; }
